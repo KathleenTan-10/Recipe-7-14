@@ -1,0 +1,77 @@
+.container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    grid-template-rows: auto auto;
+    gap: 20px;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 64px;
+    padding: 10px 20px;
+    display: block;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.origin {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    background-color: lightpink;
+    text-align: center;
+    font-size: 36px;
+    margin-top: 4px;
+    margin-bottom: 8px;
+    padding: 6px 10px;
+    border-radius: 10px;
+}
+
+.content {
+    grid-column: 2;
+    grid-row: 3;
+    padding: 8px 10px;
+    margin-top: 0;
+    background-color: #fff3f5;
+    border: 2px solid lightpink;
+    font-size: 24px;
+}
+body{
+    background-image: url();
+}
+img {
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px rgba(172, 133, 139, 0.63);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.image:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+.ingredients {
+    grid-column: 1;
+    grid-row: 3;
+    padding: 8px 10px;
+    margin-top: 0;
+    background-color: beige;
+    border: 2px solid lightpink;
+    font-size: 24px;
+    text-align: left;
+    align-self: start;
+}
+
+.recipe{
+    grid-column-start: 1;
+    grid-column-end: 5;
+    grid-row: 4;
+    padding: 8px 10px;
+    margin-top: 10;
+    background-color: beige;
+    border: 2px solid lightpink;
+    font-size: 24px;
+    text-align: center;
+    align-self: start;
+}
+
+
