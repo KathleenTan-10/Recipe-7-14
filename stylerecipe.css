@@ -1,9 +1,10 @@
 .container {
     display: grid;
-    grid-template-columns: 280px 1fr;
-    grid-template-rows: auto auto;
+    grid-template-columns: minmax(280px, 0.95fr) minmax(300px, 1.05fr);
+    grid-template-rows: auto auto auto auto;
     gap: 20px;
     padding: 10px;
+    align-items: start;
 }
 
 h1 {
@@ -28,8 +29,8 @@ h1 {
 }
 
 .content {
-    grid-column: 2;
-    grid-row: 3;
+    grid-column: 1 / -1;
+    grid-row: 2;
     padding: 8px 10px;
     margin-top: 0;
     background-color: #fff3f5;
@@ -59,11 +60,78 @@ img {
     font-size: 24px;
     text-align: left;
     align-self: start;
+    border-radius: 10px;
+}
+
+.image-container{
+    grid-column: 2;
+    grid-row: 3;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    align-self: start;
+}
+
+.image-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px rgba(172, 133, 139, 0.63);
+    background-color: #f7d8dc;
+}
+
+.image-card img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease, opacity 0.3s ease;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.image-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #f4a8b6, #b94d67);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1;
+}
+
+.image-label {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    opacity: 0;
+    transform: translateY(8px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.image-card:hover::before {
+    opacity: 0.9;
+}
+
+.image-card:hover .image-label {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.image-card:hover img {
+    filter: saturate(0) brightness(0.65);
+    transform: scale(1.03);
 }
 
 .recipe{
-    grid-column-start: 1;
-    grid-column-end: 5;
+    grid-column: 1 / -1;
     grid-row: 4;
     padding: 8px 10px;
     margin-top: 10;
